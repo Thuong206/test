@@ -69,8 +69,8 @@ export class TodoComponent implements OnInit {
     this.isTrue = false
     setTimeout(() => {
       this.isTrue = true
-      ipValue.value != '' ? this.arrTodo.push({ name: ipValue.value, date: ` ${this.time} ${this.today} ` }) : ""
     }, 1200)
+    ipValue.value != '' ? this.arrTodo.push({ name: ipValue.value, date: ` ${this.time} ${this.today} ` }) : ""
     ipValue.value = ''
     ipValue.focus()
 
