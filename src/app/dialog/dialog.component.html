@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Update {{data.name}} ?</h1>
+<div mat-dialog-content>
+    <p>Would u like to update this something?</p>
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label>Nhap</mat-label>
+        <!-- <input matInput [(ngModel)]="data.animal"> -->
+        <input matInput [placeholder]="data.name" #ipValue [value]="data.name" type="text">
+    </mat-form-field>
+</div>
+
+<div mat-dialog-content>
+    <p>Update date</p>
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label>Date</mat-label>
+        <!-- <input matInput [(ngModel)]="data.animal"> -->
+        <label for="input">
+            <input id="input" matInput #ipDate type="date" [value]="today" title="Nếu không nhập sẽ lấy ngày cố định">
+        </label>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+    <button mat-button (click)="handleSave(ipValue, ipDate.value)">Save</button>
+</div>

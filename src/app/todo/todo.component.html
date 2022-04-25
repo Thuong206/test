@@ -1,0 +1,85 @@
+<!-- <ol>
+    <li>
+        <mat-form-field appearance="fill">
+            <mat-label>What's your name?</mat-label>
+            <input matInput [(ngModel)]="name">
+        </mat-form-field>
+    </li>
+    <li>
+        <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+        You chose: <i>{{animal}}</i>
+    </li>
+</ol> -->
+
+<div style="display: flex; margin-left: 30%; margin-top: 10px;">
+    <input style="width: 50%; outline: none;" type=" text" #input>
+    <button mat-raised-button (click)="handleAdd(input)">ADD</button>
+</div>
+
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="demo-position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="demo-name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="demo-date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="demo-Update">
+        <th mat-header-cell *matHeaderCellDef> Update/Delete </th>
+        <td mat-cell *matCellDef="let element"> {{element.Update}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+
+<table class="demo-table">
+    <thead>
+        <th>
+            <tr>NO.</tr>
+        </th>
+        <th>
+            <tr>Name</tr>
+        </th>
+        <th>
+            <tr>Time</tr>
+        </th>
+        <th>
+            <tr>Update/Delete</tr>
+        </th>
+    </thead>
+
+    <tbody *ngFor="let item of arrTodo; let i = index">
+        <td>
+            <tr>{{item.stt ? item.stt : i+1}}</tr>
+        </td>
+        <td>
+            <tr>{{item.name}}</tr>
+        </td>
+        <td>
+            <tr>{{item.date}}</tr>
+        </td>
+        <td>
+            <tr>
+                <button mat-raised-button (click)="handleDelete(i)">Delete</button>
+                <button mat-raised-button (click)="handleEdit(i)">Edit</button>
+            </tr>
+        </td>
+    </tbody>
+</table>
+
+
+<mat-card-content [class.hide]="isTrue">
+    <mat-progress-spinner class="example-margin anima" [color]="color" [mode]="mode" [value]="value">
+    </mat-progress-spinner>
+</mat-card-content>
